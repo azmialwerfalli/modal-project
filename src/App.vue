@@ -26,4 +26,9 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+h1 {
+  border-bottom: 1px solid #2c3e50;
+  display: inline-block;
+  padding-bottom: 10px;
+}
 </style>

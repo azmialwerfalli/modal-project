@@ -1,5 +1,7 @@
 <template>
   <h1>{{ title }} {{ name }}</h1>
+  <input type="text" ref="name">
+  <button @click="handleClick">click me</button>
 </template> 
 
 <script>
@@ -11,6 +13,13 @@ export default {
       title: 'Hello My Name is:',
       name: 'Azmi',
     }
+  },
+  methods: {
+    handleClick(){
+      // console.log(this.$refs.name.value)
+      // this.$refs.name.classList.add('active')
+      this.$refs.name.focus()
+    },
   },
   components: {},
 

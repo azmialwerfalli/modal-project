@@ -1,11 +1,18 @@
 <template>
   <link rel="stylesheet" href="assets/css/main.css">
-  <h1>{{ title }} {{ name }}</h1>
+  <h1>{{ title }} </h1>
   <p>Welcome .... </p>
 <div v-if="showModal">
-  <Modal :header="header" :text="text" theme="sale" @close="toggleModal"/>
+  <Modal theme="" @close="toggleModal">
+    <template v-slot:links>
+      <a href="#">Sign up Now</a>
+      <a href="#">More info</a>
+    </template>
+    <h1>Hakona Matata</h1>
+    <p>Grap your Jucie Free Fruit For Half price!</p>
+  </Modal>
 </div>
-<button @click="toggleModal">Open Modal</button>
+<button @click.alt="toggleModal">Open Modal (alt)</button>
 </template> 
 
 <script>
@@ -18,10 +25,7 @@ export default {
   },
   data(){
     return{
-      title: 'Hello My Name is:',
-      name: 'Azmi',
-      header: "Sign up for the Giveaway !",
-      text: "grap your new course for half price!",
+      title: 'Hello My Dear How is it goning ? ',
       showModal: false,
     }
 

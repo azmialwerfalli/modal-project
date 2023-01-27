@@ -1,20 +1,31 @@
 <template>
-    <div class="backdrop">
-        <div class="modal">
-            <h1>Modal Title</h1>
-            <p>modal content</p>
+    <div class="backdrop" @click="closeModal">
+        <div class="modal" :class="{sale: theme === 'sale'}">
+            <h1>{{ header }}</h1>
+            <p>{{ text }}</p>
         </div>
     </div>
 </template>
+<script>
+// import { App } from 'App.vue';
+export default {
+    props: ['header','text','theme'],
+    methods: {
+        closeModal(){
+                this.$emit('close')            
+        }
+    }
+}
+
+</script>
 <style scoped>
 .modal {
-    width: 400px;
-    padding: 20px;
+    width: 500px;
+    padding: 30px;
     margin: 200px auto;
     background: #fff;
     border-radius: 10px;
 }
-
 .backdrop {
     inset: 0 auto auto auto;
     position: fixed;
@@ -26,5 +37,12 @@ h1 {
     color: #03cfb4;
     border: none;
     padding: 0;
+}
+.modal.sale {
+    background: crimson;
+    color: white;
+}
+.modal.sale h1 {
+    color: white;
 }
 </style>

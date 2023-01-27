@@ -1,7 +1,11 @@
 <template>
   <link rel="stylesheet" href="assets/css/main.css">
-  <h1>{{ title }} - {{ name }}</h1>
-  <Modal />
+  <h1>{{ title }} {{ name }}</h1>
+  <p>Welcome .... </p>
+<div v-if="showModal">
+  <Modal :header="header" :text="text" theme="sale" @close="toggleModal"/>
+</div>
+<button @click="toggleModal">Open Modal</button>
 </template> 
 
 <script>
@@ -16,8 +20,17 @@ export default {
     return{
       title: 'Hello My Name is:',
       name: 'Azmi',
+      header: "Sign up for the Giveaway !",
+      text: "grap your new course for half price!",
+      showModal: false,
     }
-  },
+
+  },   
+   methods: {
+      toggleModal() {
+        this.showModal = !this.showModal
+      }
+    },
 }
 </script>
 

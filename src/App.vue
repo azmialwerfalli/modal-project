@@ -1,32 +1,28 @@
 <template>
-  <h1>{{ title }} {{ name }}</h1>
-  <input type="text" ref="name">
-  <button @click="handleClick">click me</button>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <h1>{{ title }} - {{ name }}</h1>
+  <Modal />
 </template> 
 
 <script>
+import Modal from './components/Modal.vue'
 
 export default {
   name: 'App',
+  components:{
+    Modal
+  },
   data(){
     return{
       title: 'Hello My Name is:',
       name: 'Azmi',
     }
   },
-  methods: {
-    handleClick(){
-      // console.log(this.$refs.name.value)
-      // this.$refs.name.classList.add('active')
-      this.$refs.name.focus()
-    },
-  },
-  components: {},
-
 }
 </script>
 
 <style>
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
